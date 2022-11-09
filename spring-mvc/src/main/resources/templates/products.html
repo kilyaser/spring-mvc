@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+<!--    <link rel="stylesheet" th:href="@{/styles.css}">-->
+</head>
+<body>
+    <div>
+      <h3>Product list</h3>
+      <table>
+          <thead>
+          <tr>
+              <th>ID</th>
+              <th>Product title</th>
+              <th>Price</th>
+              <th>Link</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="product_position" th:each="prod : ${productList}">
+              <td th:text="${prod.getId()}"></td>
+              <td th:text="${prod.getTitle()}"></td>
+              <td th:text="${prod.getCost()}"></td>
+              <td>
+                  <a th:href="@{http://localhost:8080/products/{id}(id = ${prod.getId()})}">Link</a>
+              </td>
+          </tr>
+          </tbody>
+      </table>
+    </div>
+    <p><a href="/add-product">Add product</a></p>
+</body>
+</html>
