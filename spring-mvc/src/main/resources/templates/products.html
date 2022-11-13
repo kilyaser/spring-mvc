@@ -14,7 +14,7 @@
               <th>ID</th>
               <th>Product title</th>
               <th>Price</th>
-              <th>Link</th>
+              <th>Link/Delete</th>
           </tr>
           </thead>
           <tbody>
@@ -23,7 +23,8 @@
               <td th:text="${prod.getTitle()}"></td>
               <td th:text="${prod.getCost()}"></td>
               <td>
-                  <a th:href="@{http://localhost:8080/products/{id}(id = ${prod.getId()})}">Link</a>
+                  <a th:href="@{/products/{id}(id = ${prod.getId()})}">Link</a>
+                  <a th:href="@{/remove-product/{id}(id = ${prod.getId()})}">Delete</a>
               </td>
           </tr>
           </tbody>

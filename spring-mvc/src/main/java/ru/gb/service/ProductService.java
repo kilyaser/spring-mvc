@@ -28,6 +28,12 @@ public class ProductService {
                 .orElse(null);
     }
 
+    public void deleteById(long id) {
+        products.removeIf(p -> p.getId() == id);
+        Product.decId();
+
+    }
+
     @PostConstruct
     public void init() {
         addProduct(new Product("Milk", "10.5"));

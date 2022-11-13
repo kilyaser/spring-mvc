@@ -15,7 +15,6 @@ import ru.gb.service.ProductService;
 //@RequestMapping("/products")
 public class ProductController {
 
-    @Autowired
     private final ProductService productService;
 
     @Autowired
@@ -26,8 +25,8 @@ public class ProductController {
 
     @GetMapping("/products/{id}")
     @ResponseBody
-    public String getProduct(@PathVariable Long id) {
-        return  productService.getProductById(id).toString();
+    public Product getProduct(@PathVariable Long id) {
+        return  productService.getProductById(id);
     }
 
     @GetMapping("/products")
@@ -39,6 +38,7 @@ public class ProductController {
     //вызов формы для добавления
     @GetMapping("/add-product")
     public String addProductForm(Product product) {
+        Product.decId();
         return "add-product";
     }
 
@@ -46,6 +46,12 @@ public class ProductController {
     @PostMapping("/add-product")
     public String addProduct(Product product) {
         productService.addProduct(product);
+        return "redirect:/products";
+    }
+
+    @GetMapping("/remove-product/{id}")
+    public String removeProduct(@PathVariable("id") Long id) {
+        productService.deleteById(id);
         return "redirect:/products";
     }
 

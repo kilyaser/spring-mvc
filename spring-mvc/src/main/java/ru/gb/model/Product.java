@@ -18,4 +18,7 @@ public class Product {
         this.title = title;
         this.cost = cost;
     }
+    public static void decId() {
+        ID_GENERATOR.decrementAndGet();
+    }
 }
