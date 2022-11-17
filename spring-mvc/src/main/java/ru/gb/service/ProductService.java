@@ -36,10 +36,10 @@ public class ProductService {
 
     @PostConstruct
     public void init() {
-        addProduct(new Product("Milk", "10.5"));
-        addProduct(new Product("Water", "1.5"));
-        addProduct(new Product("Juice", "15.5"));
-        addProduct(new Product("Butter", "20.5"));
-        addProduct(new Product("Bread", "8.5"));
+        addProduct(new Product("Milk", 10));
+        addProduct(new Product("Water", 5));
+        addProduct(new Product("Juice", 15));
+        addProduct(new Product("Butter", 20));
+        addProduct(new Product("Bread", 8));
     }
 }
