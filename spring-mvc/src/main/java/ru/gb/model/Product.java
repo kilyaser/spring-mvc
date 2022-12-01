@@ -1,6 +1,5 @@
 package ru.gb.model;
 
-import lombok.Data;
 import javax.persistence.*;
 
 
@@ -12,7 +11,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private Long id;
     @Column(name = "title")
     private String title;
     @Column(name = "cost")
@@ -26,7 +25,7 @@ public class Product {
         this.cost = cost;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -49,5 +48,6 @@ public class Product {
     public int getCost() {
         return cost;
     }
+
 }
 
