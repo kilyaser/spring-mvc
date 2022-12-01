@@ -4,6 +4,8 @@ package ru.gb.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.gb.model.Product;
+import ru.gb.repository.ProductRepository;
+
 import java.util.List;
 
 
