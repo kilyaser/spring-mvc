@@ -1,23 +1,53 @@
 package ru.gb.model;
 
 import lombok.Data;
+import javax.persistence.*;
 
-import java.util.concurrent.atomic.AtomicInteger;
 
 
-@Data
+@Entity
+@Table(name = "product")
 public class Product {
-    private static AtomicInteger ID_GENERATOR = new AtomicInteger(1);
-    private final long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private long id;
+    @Column(name = "title")
     private String title;
+    @Column(name = "cost")
     private int cost;
 
+    public Product() {
+    }
+
     public Product(String title, int cost) {
-        this.id = ID_GENERATOR.getAndIncrement();
         this.title = title;
         this.cost = cost;
     }
-    public static void decId() {
-        ID_GENERATOR.decrementAndGet();
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getCost() {
+        return cost;
     }
 }
+

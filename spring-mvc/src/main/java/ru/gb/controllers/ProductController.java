@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ru.gb.model.Product;
 import ru.gb.service.ProductService;
 
+import java.util.List;
+
 
 @Controller
-//@RequestMapping("/products")
 public class ProductController {
 
     private final ProductService productService;
@@ -21,7 +22,6 @@ public class ProductController {
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
-
 
     @GetMapping("/products/{id}")
     @ResponseBody
@@ -38,7 +38,6 @@ public class ProductController {
     //вызов формы для добавления
     @GetMapping("/add-product")
     public String addProductForm(Product product) {
-        Product.decId();
         return "add-product";
     }
 
@@ -54,6 +53,24 @@ public class ProductController {
         productService.deleteById(id);
         return "redirect:/products";
     }
+    @GetMapping("/products-between/{min}/{max}")
+    @ResponseBody
+    public List<Product> getProductsBetween(
+            @PathVariable("min") int min,
+            @PathVariable("max") int max) {
+        return productService.fineByCostBetween(min, max);
+    }
+    @GetMapping("/products-min/{min}")
+    @ResponseBody
+    public List<Product> getProductsGranderThen(@PathVariable("min") int min) {
+        return productService.findByCostGraterThan(min);
+    }
+    @GetMapping("/products-max/{max}")
+    @ResponseBody
+    public List<Product> getProductLessThan(@PathVariable("max") int max) {
+        return productService.findByCostLessThan(max);
+    }
+
 
 
 }
