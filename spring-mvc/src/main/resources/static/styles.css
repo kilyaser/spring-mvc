@@ -1,4 +1,4 @@
 
-.product_position::after {
-    content: " rub";
+.filter-container {
+    display: flex;
 }
