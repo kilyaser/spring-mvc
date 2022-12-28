@@ -16,7 +16,6 @@ import ru.gb.validators.ProductValidator;
 @RestController
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
-@Slf4j
 public class RestProductController {
     private final ProductService productService;
     private final ProductConverter productConverter;

@@ -14,5 +14,11 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
             $scope.ProductsPage = response.data;
         });
     };
+    $scope.addToCart = function (productId) {
+        $http.get(contextPath + '/products/buy/' + productId)
+            .then(function (response) {
+            $scope.ProductsPage = response.data; // метод для примера, нужно изменить.
+        });
+    }
     $scope.loadProducts();
 });

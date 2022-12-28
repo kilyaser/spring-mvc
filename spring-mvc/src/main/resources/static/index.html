@@ -41,13 +41,16 @@
             <td>ID</td>
             <td>Назавание</td>
             <td>Цена</td>
+            <td>Купить</td>
         </tr>
         <tbody>
         <tr ng-repeat="p in ProductsPage.content">
             <td>{{p.id}}</td>
             <td>{{p.title}}</td>
             <td>{{p.price}}</td>
-
+            <td>
+                <button class="btn btn-outline-warning btn-sm" ng-click="addToCart(p.id)">В корзину</button>
+            </td>
         </tr>
         </tbody>
     </table>
